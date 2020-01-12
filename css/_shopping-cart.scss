@@ -1,0 +1,69 @@
+.shopping-cart {
+
+  & > .row {
+    border: solid 1px #fafafa;
+    margin: 10px 0;
+
+    & > form > .row {
+      border: solid 1px #fafafa;
+      margin: 10px 0;
+    }
+  }
+
+  .colors-col {
+    background-color: #fafafa;
+    text-align: center;
+    img {
+      height: 50px;
+      width: 50px;
+      margin: 10px 5px;
+    }
+  }
+
+  .item {
+    padding: 10px;
+
+    .price {
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+    }
+    .total-price {
+      min-height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+
+      i {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        font-size: 20px;
+        padding: 10px 0;
+        cursor: pointer;
+        &:hover {
+          background-color: $mainBgColor;
+        }
+      }
+
+    }
+
+  }
+
+  .total-price {
+    min-height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+
+    .to-order-button {
+      width: 100%;
+
+      &:hover {
+        background-color: $mainBgColor;
+        color: #ffffff;
+        border: 1px solid $mainBgHoverColor;
+      }
+    }
+
+  }
+
+}

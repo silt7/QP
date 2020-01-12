@@ -1,0 +1,33 @@
+<?php
+
+class m121107_213955_user_status_core extends CDbMigration
+{
+    /**
+     * Process database upgrade under transaction
+     * 
+     * @return bool whether upgrade compelted successfully
+     */
+    public function safeUp()
+    {
+        $this->createTable(
+            'user_status',
+            array(
+                'user_id' => 'int(11) UNSIGNED NOT NULL',
+                'PRIMARY KEY (`user_id`)',
+                'last_visit_time' => 'timestamp NULL DEFAULT NULL',
+                'value' => 'TEXT NOT NULL'
+            ),
+            'ENGINE=MyISAM'
+        );
+    }
+    
+    /**
+     * Process database downgrade under transaction
+     * 
+     * @return bool whether downgrade compelted successfully
+     */
+    public function safeDown()
+    {
+        $this->dropTable('user_status');
+    }
+}

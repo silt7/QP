@@ -1,0 +1,373 @@
+.qp_item {
+  width: 1000px;
+  @include clear;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.qp_item-left {
+  float: left;
+  width: 300px;
+}
+
+.qp_item-image {
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.qp_item-back-btn {
+  width: 35%;
+  @include border-radius-left(3px);
+  @include no-select;
+  background-color: #dfd8d0;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin-bottom: 10px;
+  float: left;
+  text-align: center;
+  box-sizing: border-box;
+  border-right: 1px dotted #d3ccc5;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+  color: #1f1f1f;
+  text-decoration: none;
+  &:hover {
+    background-color: #c4bdb7;
+    color: #1f1f1f;
+    text-decoration: none;
+
+  }
+  i {
+    margin-right: 10px;
+  }
+}
+
+.qp_item-count {
+  @include border-radius-right(3px);
+  float: left;
+  background-color: #dfd8d0;
+  width: 65%;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin-bottom: 10px;
+
+  .qp_item-count-minus {
+    @include no-select;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #dfd8d0;
+
+    &:hover {
+      background-color: #c4bdb7;
+    }
+  }
+  .qp_item-count-number {
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    z-index: 0;
+
+    input {
+      width: 100%;
+      height: 40px;
+      padding: 0;
+      line-height: 100%;
+      border: none;
+      text-align: center;
+      z-index: 0;
+      background-color: #dfd8d0;
+      outline: none;
+      @include border-radius-right(3px);
+
+      &:focus {
+        background-color: #c4bdb7;
+      }
+    }
+
+  }
+  .qp_item-count-plus {
+    @include no-select;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    @include border-radius-right(3px);
+    cursor: pointer;
+    background-color: #dfd8d0;
+    &:hover {
+      background-color: #c4bdb7;
+    }
+  }
+
+}
+
+.qp_item-buy-btn {
+  @include no-select;
+
+  a {
+    @extend .qp_btn;
+    background-color: #ffc801;
+    color: #1f1f1f;
+    border-bottom: 3px solid #d1a301;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+
+    &:hover {
+      color: #ffffff;
+      background-color: #dcad01;
+      border-bottom-color: #b18a01;
+
+    }
+
+  }
+}
+
+.qp_item-buy-success {
+  display: none;
+  width: 100%;
+  @include border-radius(3px);
+  @include no-select;
+  background-color: #dfd8d0;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin-bottom: 10px;
+  float: left;
+  text-align: center;
+  box-sizing: border-box;
+  border-right: 1px dotted #d3ccc5;
+  font-size: 20px;
+  cursor: pointer;
+  color: #1f1f1f;
+  text-decoration: none;
+
+  i {
+    margin-right: 10px;
+  }
+}
+
+.qp_item-right {
+  float: left;
+  width: 670px;
+  margin-left: 30px;
+}
+
+.qp_item-title {
+  display: inline-block;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  font-size: 24px;
+
+}
+
+.qp_item-price {
+  display: inline-block;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  background-color: #ffc801;
+  @include border-radius(3px);
+  border-bottom: 3px solid #d1a301;
+  font-size: 24px;
+
+}
+
+.qp_item-edit {
+  display: inline-block;
+  color: #1f1f1f;
+  float: left;
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+  @include border-radius(50%);
+  &:hover {
+    color: #ffffff;
+    background-color: #ffc801;
+    border-bottom: 3px solid #d1a301;
+  }
+
+}
+
+.qp_item-description {
+  clear: left;
+  font-size: 18px;
+
+}
+
+.qp_item-size {
+  @include border-radius(3px);
+  @include clear;
+  display: inline-block;
+  background-color: #dfd8d0;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 20px;
+  padding: 0 3px;
+
+  input {
+    float: left;
+    border: none;
+    border-left: 1px dotted #d3ccc5;
+    border-right: 1px dotted #d3ccc5;
+    padding: 0 5px;
+    height: 100%;
+    line-height: 100%;
+    background-color: transparent;
+    width: 100px;
+    text-align: center;
+    outline: none;
+
+    &:focus {
+      background-color: #c4bdb7;
+
+    }
+  }
+
+  span {
+    float: left;
+    display: inline-block;
+    height: 100%;
+    padding: 0 5px;
+
+  }
+}
+
+.qp_item-options {
+  @include clear;
+
+  .title {
+    height: 50px;
+    line-height: 30px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 20px;
+
+  }
+
+  .qp_item-option-item {
+    width: 20%;
+    box-sizing: border-box;
+    padding: 5px;
+    float: left;
+    .inner {
+      width: 100%;
+      padding: 5px 0;
+      font-size: 16px;
+      cursor: pointer;
+
+      @include border-radius(3px);
+      background-color: #dfd8d0;
+      text-align: center;
+
+      &:hover {
+        background-color: #c4bdb7;
+      }
+
+      &:active {
+        background-color: #ffc801;
+      }
+
+      input {
+        display: none;
+      }
+
+      img {
+        @include border-radius(3px);
+
+        width: 90%;
+        margin: 5%;
+      }
+    }
+    .selected {
+      background-color: #ffc801;
+      &:hover {
+        background-color: #ffc801;
+      }
+    }
+  }
+}
+
+.qp_item-colors {
+  @include clear;
+
+  .title {
+    height: 50px;
+    line-height: 30px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 20px;
+  }
+
+  .qp_item-color-item {
+    min-height: 200px;
+    width: 20%;
+    box-sizing: border-box;
+    padding: 5px;
+    float: left;
+    .inner {
+      width: 100%;
+      padding-bottom: 5px;
+      font-size: 16px;
+      cursor: pointer;
+
+      @include border-radius(3px);
+      background-color: #dfd8d0;
+      text-align: center;
+
+      &:hover {
+        background-color: #c4bdb7;
+      }
+
+      &:active {
+        background-color: #ffc801;
+      }
+
+      input {
+        display: none;
+      }
+      img {
+        @include border-radius(3px);
+
+        width: 90%;
+        margin: 5%;
+      }
+    }
+    .selected {
+      background-color: #ffc801;
+      &:hover {
+        background-color: #ffc801;
+      }
+    }
+  }
+
+}

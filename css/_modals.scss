@@ -1,0 +1,48 @@
+.module-modal, .item-modal {
+
+  .modal-content {
+    overflow: auto;
+
+    @media (max-width: 768px) {
+
+    }
+    @media (max-width: 992px) {
+
+    }
+    @media (max-width: 1200px) {
+
+    }
+
+  }
+
+  .image {
+    img {
+      width: 100%;
+    }
+  }
+
+  .price {
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+  }
+  .total-price {
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+  }
+
+  .controls {
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .module-modal-options {
+    a {
+      margin: 5px;
+      margin-left: 0;
+    }
+  }
+
+}

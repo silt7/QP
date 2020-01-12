@@ -1,0 +1,46 @@
+User-Agent: *
+Disallow: /admin/
+Disallow: /shopping-cart
+Disallow: /shopping-cart/equipment/add
+Disallow: /shopping-cart/accessory/add
+Disallow: /shopping-cart/save
+Disallow: /catalog/wall-panel/16
+Disallow: /add/module
+Disallow: /user/signInAjax
+Disallow: /user/signUpAjax
+Disallow: /sign-in
+Disallow: /sign-up
+Disallow: /?
+
+
+User-Agent: Googlebot
+Disallow: /admin/
+Disallow: /shopping-cart
+Disallow: /shopping-cart/equipment/add
+Disallow: /shopping-cart/accessory/add
+Disallow: /shopping-cart/save
+Disallow: /catalog/wall-panel/16
+Disallow: /add/module
+Disallow: /user/signInAjax
+Disallow: /user/signUpAjax
+Disallow: /?
+
+User-Agent: Yandex
+Disallow: /admin/
+Disallow: /shopping-cart
+Disallow: /shopping-cart/equipment/add
+Disallow: /shopping-cart/accessory/add
+Disallow: /shopping-cart/save
+Disallow: /catalog/wall-panel/16
+Disallow: /add/module
+Disallow: /user/signInAjax
+Disallow: /user/signUpAjax
+Disallow: /?
+
+User-agent: Mail.Ru
+User-Agent: Bingbot
+User-Agent: SputnikBot
+
+Host: qp-kuhni.ru
+
+Sitemap: https://qp-kuhni.ru/sitemap.xml
