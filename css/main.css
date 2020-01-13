@@ -1,10 +1,12 @@
-@font-face{
+@font-face {
     font-family: 'ProximaNova';
     src: url('../fonts/Proxima-Nova-Semibold.otf');
+    font-display: swap;
 }
-@font-face{
+@font-face {
     font-family: 'ProximaNovaRegular';
     src: url('../fonts/Proxima-Nova-Regular.otf');
+    font-display: swap;
 }
 #header, #index, #footer{
     font-family: ProximaNova;

@@ -1065,6 +1065,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".htaccess" />
+    <Content Include="css\app-m.css" />
+    <Content Include="css\app.css" />
+    <Content Include="css\app.css.map" />
+    <Content Include="css\app.scss" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\common.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\non-responsive.css" />
+    <Content Include="css\noresponsive.css" />
+    <Content Include="css\_common.scss" />
+    <Content Include="css\_common_2.scss" />
+    <Content Include="css\_constants.scss" />
+    <Content Include="css\_item-list.scss" />
+    <Content Include="css\_item.scss" />
+    <Content Include="css\_modals.scss" />
+    <Content Include="css\_profile.scss" />
+    <Content Include="css\_shopping-cart.scss" />
+    <Content Include="css\_tools.scss" />
     <Content Include="js\jquery-ui.js" />
     <Content Include="js\jquery.2.1.js" />
     <Content Include="js\jquery.cookie.js" />
