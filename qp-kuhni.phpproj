@@ -1064,6 +1064,7 @@
     <Folder Include="protected\views\user\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".htaccess" />
     <Content Include="js\jquery-ui.js" />
     <Content Include="js\jquery.2.1.js" />
     <Content Include="js\jquery.cookie.js" />
