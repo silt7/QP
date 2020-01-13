@@ -509,7 +509,9 @@
     </script>
 </div>
 <a href="#" class="scrollup"></a>
-<script src="/js/lib/ckeditor-full/ckeditor.js"></script>
+
+<?if (Yii::app()->user->getId() == 2): ?><script src="/js/lib/ckeditor-full/ckeditor.js"></script><?endif;?>
+
 <script src="/js/lib/ckfinder/ckfinder.js"></script>
 
 <script src="/js/jquery.maskedinput.js" type="text/javascript"></script>
