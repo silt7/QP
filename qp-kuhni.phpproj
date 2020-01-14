@@ -537,26 +537,7 @@
     <Compile Include="protected\views\admin\slider\view.php" />
     <Compile Include="protected\views\admin\whyorder\edit.php" />
     <Compile Include="protected\views\admin\whyorder\view.php" />
-    <Compile Include="protected\views\catalog\accessories.php" />
-    <Compile Include="protected\views\catalog\accessory-item.php" />
-    <Compile Include="protected\views\catalog\bar-item.php" />
-    <Compile Include="protected\views\catalog\bars.php" />
-    <Compile Include="protected\views\catalog\catalog-menu.php" />
     <Compile Include="protected\views\catalog\catalog.php" />
-    <Compile Include="protected\views\catalog\constructor-front-hint.php" />
-    <Compile Include="protected\views\catalog\constructor-module-hint.php" />
-    <Compile Include="protected\views\catalog\equipment-item.php" />
-    <Compile Include="protected\views\catalog\equipment-list.php" />
-    <Compile Include="protected\views\catalog\fronts.php" />
-    <Compile Include="protected\views\catalog\kitchen-modules.php" />
-    <Compile Include="protected\views\catalog\shkaf.php" />
-    <Compile Include="protected\views\catalog\shkafy.php" />
-    <Compile Include="protected\views\catalog\tabletop-item.php" />
-    <Compile Include="protected\views\catalog\tabletop.php" />
-    <Compile Include="protected\views\catalog\tabletops.php" />
-    <Compile Include="protected\views\catalog\wall-panel-item.php" />
-    <Compile Include="protected\views\catalog\wall-panels.php" />
-    <Compile Include="protected\views\catalog\wallpanel.php" />
     <Compile Include="protected\views\include\advantage.php" />
     <Compile Include="protected\views\include\banner.php" />
     <Compile Include="protected\views\include\calcCost-OLD.php" />
@@ -1065,6 +1046,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".htaccess" />
+    <Content Include="composer.json" />
     <Content Include="css\app-m.css" />
     <Content Include="css\app.css" />
     <Content Include="css\app.css.map" />
@@ -2609,6 +2591,9 @@
     <Content Include="protected\extensions\phpexcel\PHPExcel\Shared\PCLZip\readme.txt" />
     <Content Include="protected\extensions\sessionstorage\migrations\m121107_213955_user_status_core.mgr" />
     <Content Include="protected\runtime\state.bin" />
+    <Content Include="protected\views\catalog\left-menu.tpl" />
+    <Content Include="protected\views\catalog\list.tpl" />
+    <Content Include="protected\views\catalog\main.tpl" />
     <Content Include="protected\yiic" />
   </ItemGroup>
 </Project>

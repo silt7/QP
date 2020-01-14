@@ -424,7 +424,7 @@
                     положениями Статьи 437 Гражданского кодекса РФ.
                     <a href="/politik.html">Политика конфиденциальности</a>
                 </p>
-                <p>Copyright © 2014-2019</p>
+                <p>Copyright © 2014-2020</p>
             </div>
         </div>
         <div itemscope itemtype="https://schema.org/Organization" style="display:none;">
