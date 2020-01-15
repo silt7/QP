@@ -89,6 +89,8 @@ class CatalogController extends Controller {
         $obj['template'] = "list";
         $obj['page'] = $section;
         $obj['idMenu'] = 1;
+        $obj['pathImg'] = '/images/item_modules/';
+        $obj['pathItem'] = 'moduleItem/';
 
         $listCriteria            = new CDbCriteria;
 		$listCriteria->condition = 'is_show=:is_show';
@@ -99,17 +101,26 @@ class CatalogController extends Controller {
         $obj['list'] = $list;
 		$this->render( 'catalog', array('obj' => $obj));
 	}
+    public function actionModuleItem($id) {
+        $item = ItemModule::model()->findByPk($id);
 
+        $obj['template'] = "item";
+        $obj['title'] = $item->title;
+        $obj['item'] = $item;
 
+        $this->render( 'catalog', array('obj' => $obj));
+    }
 	/**
 	 * Каталог - конструктор - кухонные фасады
 	 */
 	public function actionFronts() {
         $section = Folder::model()->findByPk(7);
-        $obj['title'] = 'Кухонные модули';
+        $obj['title'] = 'Фасады';
         $obj['template'] = "list";
         $obj['page'] = $section;
         $obj['idMenu'] = 4;
+        $obj['pathImg'] = '/images/item_fronts/';
+        $obj['pathItem'] = 'front/';
 
         $listCriteria            = new CDbCriteria;
 		$listCriteria->condition = 'is_show=:is_show';
@@ -120,7 +131,15 @@ class CatalogController extends Controller {
         $obj['list'] = $list;
 		$this->render( 'catalog', array('obj' => $obj));
 	}
+    public function actionFront($id) {
+        $item = ItemFront::model()->findByPk($id);
 
+        $obj['template'] = "item";
+        $obj['title'] = $item->title;
+        $obj['item'] = $item;
+
+        $this->render( 'catalog', array('obj' => $obj));
+    }
 	/**
 	 * Фасады:(цена за цвет и фрезеровки)
 	 */
@@ -219,12 +238,14 @@ class CatalogController extends Controller {
 	}
 
 
-	public function actionTabletops() {
-        $section = Folder::model()->findByPk(8);
+	public function actionTabletops($id) {
+        $section = Folder::model()->findByPk($id);
         $obj['title'] = 'Кухонные столешницы';
         $obj['template'] = "list";
         $obj['page'] = $section;
         $obj['idMenu'] = 2;
+        $obj['pathImg'] = '/images/item_tabletops/';
+        $obj['pathItem'] = 'tabletop/';
 
 		$tabletopsCriteria            = new CDbCriteria;
 		$tabletopsCriteria->condition = 'is_show=1';
@@ -237,10 +258,13 @@ class CatalogController extends Controller {
 
 	public function actionWallpanels() {
         $section = Folder::model()->findByPk(9);
+
         $obj['title'] = 'Стеновые панели';
         $obj['template'] = "list";
         $obj['page'] = $section;
-        $obj['idMenu'] = 2;
+        $obj['idMenu'] = 3;
+        $obj['pathImg'] = '/images/item_tabletops/';
+        $obj['pathItem'] = 'wallpanel/';
 
 		$wallPanelsCriteria = new CDbCriteria;
 		$wallPanelsCriteria->condition = 'is_show=1';
@@ -252,91 +276,23 @@ class CatalogController extends Controller {
 	}
 
 	public function actionTabletop( $id ) {
-		$tabletop = ItemCover::model()->findByPk( $id );
-		$standard = 1;
+        $item = ItemCover::model()->findByPk( $id );
 
-		$catalogMenu       = $this->getCatalogMenuArray();
-		$openCatalogItemId = null;
+        $obj['title'] = $item->title;
+        $obj['template'] = "item";
+        $obj['item'] = $item;
 
-		$options = $tabletop->getOptions();
-		if($options){
-			foreach ( $options as $option){
-
-				$optionModel = ModuleOption::model()->findByPk( $option["id"] );
-				if ( $optionModel["group"] == 'no_standard' ){
-					$standard = 0;
-					if ( $optionModel["id"] == 126 ){
-						$min_w = $option["price"];
-					}
-					if ( $optionModel["id"] == 127 ){
-						$max_w = $option["price"];
-					}
-					if ( $optionModel["id"] == 128 ){
-						$min_h = $option["price"];
-					}
-					if ( $optionModel["id"] == 129 ){
-						$max_h = $option["price"];
-					}
-				}
-			}
-		}
-		if($standard == 0){
-			$no_standard = array('min_w' => $min_w, 'max_w' => $max_w,'min_h' => $min_h, 'max_h' => $max_h);
-			$no_standard = json_encode($no_standard);
-		}
-		else{
-			$no_standard = array();
-		}
-
-		$i  = 0;		$id_p = $tabletop -> folder_id;		$patch=array();
-		while($i != 1){
-			$p = Folder::model()->findByPk( $id_p );
-			if (isset($p -> parent_id)){
-				array_push($patch, $p -> id);
-				$id_p = $p -> parent_id;
-			}
-			else{
-				$i=1;
-			}
-			if($id_p == 0){
-				$i=1;
-			}
-		}
-
-		$size_std = $tabletop->stdSizeCover();
-
-		$this->pageTitle = $tabletop->title;
-		$this->description = $tabletop->title;
-		$this -> canonical = Yii::app()->request->getHostInfo() . '/' . Yii::app()->request->getPathInfo();
-		$this->render( 'tabletop-item', array( "item" => $tabletop, "catalogMenu" => $catalogMenu, "openCatalogItemId" => $openCatalogItemId,
-												"no_standard" => $no_standard, "patch" => array_reverse ($patch),'size_std' => $size_std) );
+		$this->render( 'catalog', array( 'obj' => $obj ));
 	}
 
 	public function actionWallPanel( $id ) {
 		$item = ItemCover::model()->findByPk( $id );
 
-		$catalogMenu       = $this->getCatalogMenuArray();
-		$openCatalogItemId = null;
+        $obj['title'] = $item->title;
+        $obj['template'] = "item";
+        $obj['item'] = $item;
 
-		$i  = 0;		$id_p = $item -> folder_id;		$patch=array();
-		while($i != 1){
-			$p = Folder::model()->findByPk( $id_p );
-			if (isset($p -> parent_id)){
-				array_push($patch, $p -> id);
-				$id_p = $p -> parent_id;
-			}
-			else{
-				$i=1;
-			}
-			if($id_p == 0){
-				$i=1;
-			}
-		}
-
-		$this->pageTitle = $item->title;
-		$this->description = $item->title;
-		$this->canonical = Yii::app()->request->getHostInfo() . '/' . Yii::app()->request->getPathInfo();
-		$this->render( 'wall-panel-item', array( "item" => $item, "catalogMenu" => $catalogMenu, "openCatalogItemId" => $openCatalogItemId, "patch" => array_reverse ($patch)  ) );
+		$this->render( 'catalog', array( 'obj' => $obj ));
 	}
 
 	public function actionAccessories() {
@@ -345,6 +301,8 @@ class CatalogController extends Controller {
         $obj['template'] = "list";
         $obj['page'] = $section;
         $obj['idMenu'] = 5;
+        $obj['pathImg'] = '/images/item_accessories/';
+        $obj['pathItem'] = 'accessory/';
 
 		$accessoriesCriteria            = new CDbCriteria;
 		$accessoriesCriteria->condition = 'is_show=1';
@@ -356,30 +314,13 @@ class CatalogController extends Controller {
 	}
 
 	public function actionAccessory( $id ) {
-		$accessory = Accessory::model()->findByPk( $id );
+		$item = Accessory::model()->findByPk( $id );
 
-		$catalogMenu       = $this->getCatalogMenuArray();
-		$openCatalogItemId = 5;
+        $obj['title'] = $item->title;
+        $obj['template'] = "item";
+        $obj['item'] = $item;
 
-		$i  = 0;		$id_p = $accessory -> folder_id;		$patch=array();
-		while($i != 1){
-			$p = Folder::model()->findByPk( $id_p );
-			if (isset($p -> parent_id)){
-				array_push($patch, $p -> id);
-				$id_p = $p -> parent_id;
-			}
-			else{
-				$i=1;
-			}
-			if($id_p == 0){
-				$i=1;
-			}
-		}
-
-		$this->pageTitle = $accessory->title;
-		$this->canonical = Yii::app()->request->getHostInfo() . '/' . Yii::app()->request->getPathInfo();
-		$this->description = $accessory->title;
-		$this->render( 'accessory-item', array( "item" => $accessory, "catalogMenu" => $catalogMenu, "openCatalogItemId" => $openCatalogItemId, "patch" => array_reverse ($patch) ) );
+		$this->render( 'catalog', array( 'obj' => $obj ));
 	}
 
 	public function actionEquipment() {
@@ -388,6 +329,8 @@ class CatalogController extends Controller {
         $obj['template'] = "list";
         $obj['page'] = $section;
         $obj['idMenu'] = 6;
+        $obj['pathImg'] = '/images/item_equipment/';
+        $obj['pathItem'] = 'equipment/';
 
         $equipmentCriteria  = new CDbCriteria;
 		$equipmentCriteria->condition = 'is_show=1';
@@ -399,30 +342,15 @@ class CatalogController extends Controller {
 	}
 
 	public function actionEquipmentItem( $id ) {
-		$equipment = Equipment::model()->findByPk( $id );
+		$item = Equipment::model()->findByPk( $id );
 
-		$catalogMenu       = $this->getCatalogMenuArray();
-		$openCatalogItemId = null;
+        $obj['title'] = $item->title;
+        $obj['template'] = "item";
+        $obj['item'] = $item;
 
-		$i  = 0;		$id_p = $equipment -> folder_id;		$patch=array();
-		while($i != 1){
-			$p = Folder::model()->findByPk( $id_p );
-			if (isset($p -> parent_id)){
-				array_push($patch, $p -> id);
-				$id_p = $p -> parent_id;
-			}
-			else{
-				$i=1;
-			}
-			if($id_p == 0){
-				$i=1;
-			}
-		}
 
-		$this->pageTitle = $equipment->title;
-		$this->description = $equipment->title;
-		$this->canonical = Yii::app()->request->getHostInfo() . '/' . Yii::app()->request->getPathInfo();
-		$this->render( 'equipment-item', array( "item" => $equipment, "catalogMenu" => $catalogMenu, "openCatalogItemId" => $openCatalogItemId, "patch" => array_reverse ($patch) ) );
+		$this->render( 'catalog', array( 'obj' => $obj ));
+
 	}
 
 	public function actionShkafy($id) {
@@ -510,7 +438,7 @@ class CatalogController extends Controller {
 	    $this->actionWallpanels();
 	}
 	public function actionStoleshnicy($id) {
-	    $this->actionTabletops();
+	    $this->actionTabletops($id);
 	}
 	public function actionKuhonnayatehnika($id) {
 	    $this->actionEquipment();

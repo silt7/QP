@@ -2591,6 +2591,7 @@
     <Content Include="protected\extensions\phpexcel\PHPExcel\Shared\PCLZip\readme.txt" />
     <Content Include="protected\extensions\sessionstorage\migrations\m121107_213955_user_status_core.mgr" />
     <Content Include="protected\runtime\state.bin" />
+    <Content Include="protected\views\catalog\item.tpl" />
     <Content Include="protected\views\catalog\left-menu.tpl" />
     <Content Include="protected\views\catalog\list.tpl" />
     <Content Include="protected\views\catalog\main.tpl" />

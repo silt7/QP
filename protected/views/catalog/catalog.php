@@ -1,8 +1,8 @@
-<div class="body_main">
+﻿<div class="body_main">
     <div class="container">
         <ol class="left-m breadcrumb">
             <li>
-                <a href="/" class="link" title="������ ����� � QP-kuhni">QP-kuhni</a>
+                <a href="/" class="link" title="Купить кухню в QP-kuhni">QP-kuhni</a>
             </li>
             <li class="active">
                 <?= $obj['title']; ?>
@@ -24,7 +24,7 @@
 			        $('#hide-button').trigger('click');
 		        })
             </script>
-            <a id="hide-button" data-toggle="modal" data-target="#calculate-price-modal" style="display:none">������� �����</a>
+            <a id="hide-button" data-toggle="modal" data-target="#calculate-price-modal" style="display:none">скрытый вызов</a>
             <? require_once( Yii::getPathOfAlias( 'webroot' ) . "/protected/views/include/calcCost.php" );  ?>
         </div>
     </div>
@@ -33,5 +33,8 @@
 <script type="text/javascript">
     $(function () {
 		$("#nav-catalog").addClass('active');
-	})
+    })
+    $('.qp_item-buy-btn').click(function () {
+        alert('Данный товар можно купить по телефону 8 (812) 952 97 83 или в салоне по адресу: Шлиссельбургский проспект, ТЦ Эврика, дом 3-7, этаж 2, офис 87.');
+    });
 </script>
