@@ -1,4 +1,4 @@
-﻿<div class="list-group list-promo">
+<div class="list-group list-promo">
     <? $catalogMenu       = $this->getCatalogMenuArray();?>
 	<? $catalogMenu = $this->processOutput( $catalogMenu );?>
 	<? foreach ( $catalogMenu as $catalogMenuItem ) :
@@ -15,5 +15,3 @@
 	<? endforeach ?>
 
 </div>
-	
-<div id="color_block_cont_m"></div>

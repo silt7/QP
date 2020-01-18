@@ -23,14 +23,13 @@ class CatalogController extends Controller {
 	public $ActionPrice_gl = 0.66;
     public $canonical = '';
 	public $description = '';
-	/**
-	 * Каталог - конструктор
-	 */
+
 	public function actionIndex() {
 		$page = Page::model()->findByPk( 12 );
         $obj['title'] = $page->menu;
 		$obj['template'] = "main";
         $obj['page'] = $page;
+		$obj['breadcrumb'] = $this->getBreadcrumb(0,'');
 
 		$this -> canonical = Yii::app()->request->getHostInfo() . '/' . Yii::app()->request->getPathInfo();
 		$this->pageTitle = "Каталог";
@@ -64,6 +63,8 @@ class CatalogController extends Controller {
         $obj['pathImg'] = '/images/item_modules/';
         $obj['pathItem'] = 'moduleItem/';
         $obj['folder'] = [];
+		$obj['breadcrumb'] = $this->getBreadcrumb(6,'kitchenmodules/');
+
 
         $listCriteria            = new CDbCriteria;
 		$listCriteria->condition = 'is_show=:is_show';
@@ -80,6 +81,8 @@ class CatalogController extends Controller {
         $obj['template'] = "item";
         $obj['title'] = $item->title;
         $obj['item'] = $item;
+		$obj['breadcrumb'] = $this->getBreadcrumb(6,'kitchenmodules/');
+		array_push($obj['breadcrumb'], array('path' => '','title' => $item->title));
 
         $this->render( 'catalog', array('obj' => $obj));
     }
@@ -94,6 +97,7 @@ class CatalogController extends Controller {
         $obj['pathImg'] = '/images/item_fronts/';
         $obj['pathItem'] = 'front/';
         $obj['folder'] = [];
+		$obj['breadcrumb'] = $this->getBreadcrumb(7,'fronts/');
 
         $listCriteria            = new CDbCriteria;
 		$listCriteria->condition = 'is_show=:is_show';
@@ -110,6 +114,8 @@ class CatalogController extends Controller {
         $obj['template'] = "item";
         $obj['title'] = $item->title;
         $obj['item'] = $item;
+		$obj['breadcrumb'] = $this->getBreadcrumb(7,'fronts/');
+		array_push($obj['breadcrumb'], array('path' => '','title' => $item->title));
 
         $this->render( 'catalog', array('obj' => $obj));
     }
@@ -123,6 +129,7 @@ class CatalogController extends Controller {
         $obj['pathfolder'] = 'stoleshnicy/';
         $obj['page'] = $this->getFolder($id);
         $obj['folder'] = $this->getFolderChild($id);
+		$obj['breadcrumb'] = $this->getBreadcrumb($id,$obj['pathfolder']);
 
 		$tabletops  = ItemCover::model()->findAll( $this->getCriteria($id) );
         $obj['list'] = $tabletops;
@@ -139,6 +146,7 @@ class CatalogController extends Controller {
         $obj['pathfolder'] = 'stenovye-paneli/';
         $obj['page'] = $this->getFolder($id);
         $obj['folder'] = $this->getFolderChild($id);
+		$obj['breadcrumb'] = $this->getBreadcrumb($id,$obj['pathfolder']);
 
 		$wallPanels = ItemCover::model()->findAll( $this->getCriteria($id) );
         $obj['list'] = $wallPanels;
@@ -152,6 +160,8 @@ class CatalogController extends Controller {
         $obj['title'] = $item->title;
         $obj['template'] = "item";
         $obj['item'] = $item;
+		$obj['breadcrumb'] = $this->getBreadcrumb($item->folder_id,'stoleshnicy/');
+		array_push($obj['breadcrumb'], array('path' => '','title' => $item->title));
 
 		$this->render( 'catalog', array( 'obj' => $obj ));
 	}
@@ -162,6 +172,8 @@ class CatalogController extends Controller {
         $obj['title'] = $item->title;
         $obj['template'] = "item";
         $obj['item'] = $item;
+		$obj['breadcrumb'] = $this->getBreadcrumb($item->folder_id,'stenovye-paneli/');
+		array_push($obj['breadcrumb'], array('path' => '','title' => $item->title));
 
 		$this->render( 'catalog', array( 'obj' => $obj ));
 	}
@@ -175,7 +187,8 @@ class CatalogController extends Controller {
         $obj['pathfolder'] = 'kuhonnye-aksessuary/';
         $obj['page'] = $this->getFolder($id);
         $obj['folder'] = $this->getFolderChild($id);
-
+		$obj['breadcrumb'] = $this->getBreadcrumb($id,$obj['pathfolder']);
+		
 		$accessories = Accessory::model()->findAll( $this->getCriteria($id) );
         $obj['list'] = $accessories;
 
@@ -188,6 +201,8 @@ class CatalogController extends Controller {
         $obj['title'] = $item->title;
         $obj['template'] = "item";
         $obj['item'] = $item;
+		$obj['breadcrumb'] = $this->getBreadcrumb($item->folder_id,'kuhonnye-aksessuary/');
+		array_push($obj['breadcrumb'], array('path' => '','title' => $item->title));
 
 		$this->render( 'catalog', array( 'obj' => $obj ));
 	}
@@ -201,6 +216,7 @@ class CatalogController extends Controller {
         $obj['pathfolder'] = 'kuhonnaya-tehnika/';
         $obj['page'] = $this->getFolder($id);
         $obj['folder'] = $this->getFolderChild($id);
+		$obj['breadcrumb'] = $this->getBreadcrumb($id,$obj['pathfolder']);
 
 		$equipment  = Equipment::model()->findAll( $this->getCriteria($id) );
         $obj['list'] = $equipment;
@@ -214,6 +230,8 @@ class CatalogController extends Controller {
         $obj['title'] = $item->title;
         $obj['template'] = "item";
         $obj['item'] = $item;
+		$obj['breadcrumb'] = $this->getBreadcrumb($item->folder_id,'kuhonnaya-tehnika/');
+		array_push($obj['breadcrumb'], array('path' => '','title' => $item->title));
 
 		$this->render( 'catalog', array( 'obj' => $obj ));
 	}
@@ -227,10 +245,37 @@ class CatalogController extends Controller {
         $obj['pathfolder'] = 'shkafy/';
         $obj['page'] = $this->getFolder($id);
         $obj['folder'] = $this->getFolderChild($id);
+		$obj['breadcrumb'] = $this->getBreadcrumb($id,$obj['pathfolder']);
 
         $obj['list'] = [];
 
 		$this->render( 'catalog', array( 'obj' => $obj ));
+	}
+	
+	public function getBreadcrumb($id_p,$pathFolder){
+		$path = [];
+		$arr = [];
+		$i = 0;
+		while($i != 1){
+			$p = Folder::model()->findByPk( $id_p );
+			if (isset($p -> parent_id)){
+				$arr['path'] = '/catalog/'.$pathFolder.$p->id;
+				if(($p->id == 6)||($p->id == 7)){$arr['path'] = '/catalog/'.$pathFolder;}
+				$arr['title'] = $p->title;
+				array_push($path, $arr );
+				$id_p = $p -> parent_id;
+			}
+			else{
+				$i=1;
+			}
+			if($id_p == 0){
+				$i=1;
+			}
+		}
+		$arr['path'] = '/catalog';
+		$arr['title'] = 'Каталог';
+		array_push($path, $arr );
+		return array_reverse($path);
 	}
 
     public function getFolder($id){
