@@ -148,6 +148,8 @@ class ItemaccessoriesController extends AdminController {
 			}
 		}
 
+        $price_show = Yii::app()->request->getPost( "price_show" );
+
 		$accessory->setOptions( $options );
 		$accessory->setColors( $colors );
 
@@ -162,6 +164,7 @@ class ItemaccessoriesController extends AdminController {
 		$accessory->is_show = $isShow;
 		$accessory->show_cover = $ShowCover;
 		$accessory->show_wall = $ShowWall;
+        $accessory->price_show  = is_null($price_show)?0:1;
 		if ( $accessory->update() and $image != null ) {
 			$image = $id . '.png';//md5( $color->title . $image );
 			$path  = Yii::getPathOfAlias( 'webroot' ) . '/images/item_accessories/' . $image;

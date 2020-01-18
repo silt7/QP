@@ -16,7 +16,7 @@
 		<a class="qp_item-back-btn" href="<?= $this->getBackUrl() ?>"><i class="fa fa-angle-left"></i>Назад</a>
 	</div>
 	<div class="col-sm-8">
-		<?if($obj['item']->price):?>
+		<?if(($obj['item']->price)and($obj['item']->price_show == 1)):?>
 			<div class="qp_item-price-caption">ЦЕНА:</div>
 			<div class="qp_item-price"><span id="item-price"><?= Utils::priceFormat( $obj['item']->price  ) ?></span> <i >р</i></div>
 			<div class="tocart">

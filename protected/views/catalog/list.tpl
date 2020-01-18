@@ -20,7 +20,7 @@
 				<div class="edit-panel">
 					<div class="title"><?= $item->title?></div>
 					<div class="filtr"><img src="<?= $obj['pathImg'].$item->image?>" alt="" style="height:150px"></div>
-					<?if($item->price > 0):?>
+					<?if(($item->price > 0)and($item->price_show == 1)):?>
 						<div class="item-price"><span><?= Utils::priceFormat( $item->price  ) ?> руб.</span></div>
 						<a href="/catalog/<?= $obj['pathItem'].$item->id?>" class="by-fronts">Купить</a>
 					<?else:?>

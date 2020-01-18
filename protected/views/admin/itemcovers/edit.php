@@ -85,6 +85,19 @@
 						</div>
 
 					</div>
+                    <div class="form-group">
+                        <span class="text-danger">*</span>
+                        <label>Цена</label>
+
+                        <div class="input-group">
+                            <input type="text" name="price" class="form-control" value="<?= $item->price ?>" placeholder="0"
+                                aria-describedby="price" />
+                            <span class="input-group-addon" id="price">руб.</span>
+                        </div>
+                        <input type="checkbox" name="price_show" value="1" <?= $item->price_show == 1?'checked':''; ?> /> Отображать цену
+                    </div>
+
+
 					<div class="form-group">
 						<span class="text-danger">*</span>
 						<label>предоплата</label>

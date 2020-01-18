@@ -168,6 +168,7 @@ class ItemmodulesController extends AdminController {
 				}
 			}
 		}
+        $price_show = Yii::app()->request->getPost( "price_show" );
 
 		$itemModule->setColors( $colors );
 		$itemModule->setOptions( $options );
@@ -176,13 +177,15 @@ class ItemmodulesController extends AdminController {
 		$itemModule->description = $description;
 		$itemModule->is_show     = $isShow;
 		$itemModule->pre_pay     = $prePay;
-		$itemModule->folder_id   = $folder;
+		$itemModule->folder_id   = 0;
 		$itemModule->filtr       = $filtr;
 		$itemModule->img_alt     = $img_alt;
+        $itemModule->price  = Yii::app()->request->getPost( "price" );
+        $itemModule->price_show  = is_null($price_show)?0:1;
 		if(isset($_POST['del_img'])){
 			$del_img = $_POST['del_img'];
 		}else $del_img = "n";
-		
+
 		if ( $itemModule->update() and $image != null ) {
 			$image = $itemModule->id .'.jpg';
 			$path  = Yii::getPathOfAlias( 'webroot' ) . '/images/item_modules/' . $image;
