@@ -13,7 +13,7 @@
 			<?php require_once( Yii::getPathOfAlias( 'webroot' ) . "/protected/views/catalog/{$obj['template']}.tpl" ); ?>
 		</div>
 	</div>
-	<div class="row" id="content">
+	<div class="row" id="content" style="margin-bottom: 25px;">
 		<? require_once( Yii::getPathOfAlias( 'webroot' ) . "/protected/views/include/banner.php" );  ?>
 		<script>
 			$('.a-calc').removeAttr('href');
