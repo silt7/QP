@@ -1,0 +1,1 @@
+<?= $obj['page']->content ?>

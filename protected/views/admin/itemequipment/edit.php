@@ -26,6 +26,12 @@
 							<input type="text" name="title" class="form-control" placeholder="Название"
 							       value="<?= $equipment->title ?>">
 						</div>
+                        <div class="form-group">
+                            <span class="text-danger">*</span>
+                            <label>Артикул</label>
+                            <input type="text" name="articulus" class="form-control" placeholder="Артикул"
+                                value="<?= $equipment->articulus ?>" />
+                        </div>
 						<!--
 						<div class="form-group">
 							<span class="text-danger">*</span>
@@ -100,6 +106,7 @@
 								       aria-describedby="price">
 								<span class="input-group-addon" id="price">руб</span>
 							</div>
+                            <input type="checkbox" name="price_show" value="1" <?= $equipment->price_show == 1?'checked':''; ?> /> Отображать цену
 						</div>
 
 						<div class="form-group">

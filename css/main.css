@@ -1,10 +1,12 @@
-@font-face{
+@font-face {
     font-family: 'ProximaNova';
     src: url('../fonts/Proxima-Nova-Semibold.otf');
+    font-display: swap;
 }
-@font-face{
+@font-face {
     font-family: 'ProximaNovaRegular';
     src: url('../fonts/Proxima-Nova-Regular.otf');
+    font-display: swap;
 }
 #header, #index, #footer{
     font-family: ProximaNova;
@@ -1188,7 +1190,25 @@ input[type=tel] {
 #content #vk .vk-h{
     font-size: 18px;
 }
-@media only screen and (min-width: 901px){
+.qp-list .inner {
+    display: inline-block;
+    width: 100%;
+    height: 310px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #1f1f1f;
+    text-decoration: none;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+    text-align: center;
+    border: 1px solid gray;
+    font-weight: 700;
+}
+@media only screen and (min-width: 901px) {
     nav{display:none;}
 }
 @media only screen and (max-width: 900px){

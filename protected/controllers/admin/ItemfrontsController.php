@@ -52,17 +52,17 @@ class ItemFrontsController extends AdminController {
 			if($option['group'] == "milling"){
 				array_push($count_milling, $option["title"]);
 			}
-		} 
-		
+		}
+
 /* 		$priceCriteria            = new CDbCriteria;
 		$topRage=new CDbCriteria();
 		$topRage->select="*";
 		$topRage->alias="p";
 		$topRage->join="INNER JOIN `colorCategory` c ON p.id_category = c.id";
   		$priceCriteria->condition = 'p.id_front=:id_front';
-		$priceCriteria->params    = array( ':id_front' => $id ); 
+		$priceCriteria->params    = array( ':id_front' => $id );
 		$price  				  = PriceFrontColor::model()->findAll( $priceCriteria ); */
-		
+
 		$price = Yii::app()->db->createCommand()
 			->select("*")
 			->from('PriceFrontColor p')
@@ -116,7 +116,7 @@ class ItemFrontsController extends AdminController {
 		if(isset($_POST['del_img'])){
 			$del_img = $_POST['del_img'];
 		}else $del_img = "n";
-		
+
 		$prePay = array(0 => $prePay_ldsp, 1 => $prePay_mdf, 2 => $prePay_plast);
 		$prePay = serialize($prePay);
 		$title = str_replace( "\"", "&#34;", $title );
@@ -142,7 +142,7 @@ class ItemFrontsController extends AdminController {
 				}
 			}
 		}
-		
+
 
 		if ( $optionsPost ) {
 			foreach ( $optionsPost as $optionPost ) {
@@ -153,7 +153,9 @@ class ItemFrontsController extends AdminController {
 				}
 			}
 		}
-		
+
+        $price_show = Yii::app()->request->getPost( "price_show" );
+
 		$itemFront->setOptions( $options );
 		$itemFront->title   = $title;
 		$itemFront->pre_pay = $prePay;
@@ -161,6 +163,8 @@ class ItemFrontsController extends AdminController {
 		$itemFront->filtr   = $filtr;
 		$itemFront->description   = $descr;
 		$itemFront->img_alt     = $img_alt;
+        $itemFront->price  = Yii::app()->request->getPost( "price" );
+        $itemFront->price_show  = is_null($price_show)?0:1;
 		if ( $itemFront->update() and $image != null ) {
 			$image = $itemFront->id.'.jpg';
 			$path  = Yii::getPathOfAlias( 'webroot' ) . '/images/item_fronts/' . $image;
@@ -206,16 +210,16 @@ class ItemFrontsController extends AdminController {
 		$colors = Color::model()->findAll($colorsCriteria);
 		$arr = array();
 		$arrWithout = array();
-		foreach($colors as $item){			
+		foreach($colors as $item){
 			$arr2 = array('id' => $item['id'], 'is_enabled' => '1');
-			array_push($arr, $arr2);			
+			array_push($arr, $arr2);
 		}
-		foreach($colors as $item){			
+		foreach($colors as $item){
 			if ($item['id'] != 29){
 				$arr3 = array('id' => $item['id'], 'is_enabled' => '1');
 				array_push($arrWithout, $arr3);
-			}			
-		}	
+			}
+		}
 		foreach($Fronts as $itemFront){
 			if(($itemFront['id'] == 109 ) or ($itemFront['id'] == 110 )){
 				$itemFront->colors = serialize($arr);

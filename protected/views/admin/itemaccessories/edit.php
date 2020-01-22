@@ -142,6 +142,7 @@
 						       aria-describedby="price">
 						<span class="input-group-addon" id="price">руб</span>
 					</div>
+                    <input type="checkbox" name="price_show" value="1" <?= $accessory->price_show == 1?'checked':''; ?> /> Отображать цену
 				</div>
 
 				<div class="form-group">

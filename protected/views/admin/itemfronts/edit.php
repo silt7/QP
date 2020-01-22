@@ -57,7 +57,17 @@
 							</div>
 
 						</div>
+                        <div class="form-group">
+                            <span class="text-danger">*</span>
+                            <label>Цена</label>
 
+                            <div class="input-group">
+                                <input type="text" name="price" class="form-control" value="<?= $itemFront->price ?>" placeholder="0"
+                                    aria-describedby="price" />
+                                <span class="input-group-addon" id="price">руб.</span>
+                            </div>
+                            <input type="checkbox" name="price_show" value="1" <?= $itemFront->price_show == 1?'checked':''; ?> /> Отображать цену
+                        </div>
 						<div class="form-group">
 							<span class="text-danger">*</span>
 							<label>предоплата</label>
@@ -220,7 +230,7 @@
 											<input type="text" name="option_<?= $option->id ?>" class="form-control" value="<?= $price ?>" placeholder="0"
 												   aria-describedby="option-<?= $option->id ?>">
 											<span class="input-group-addon" id="option-<?= $option->id ?>">шт.</span>
-											<input type="text" class="form-control" value="<?= $option["price"]*$price?>" disabled><span class="input-group-addon">руб.</span>
+											<input type="text" class="form-control" value="" disabled><span class="input-group-addon">руб.</span>
 										</div>
 
 										<input type="checkbox" name="options[]" value="<?= $option->id ?>"

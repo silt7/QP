@@ -149,6 +149,7 @@ class ItemcoversController extends AdminController {
 			}
 		}
 
+        $price_show = Yii::app()->request->getPost( "price_show" );
 
 		$itemTabletop->setColors( $colors );
 		$itemTabletop->setOptions( $options );
@@ -160,6 +161,8 @@ class ItemcoversController extends AdminController {
 		$itemTabletop->folder_id   = $folder;
 		$itemTabletop->extra_size  = $extraSize;
 		$itemTabletop->img_alt     = $img_alt;
+        $itemTabletop->price  = Yii::app()->request->getPost( "price" );
+        $itemTabletop->price_show  = is_null($price_show)?0:1;
 
 		if ( $itemTabletop->update() and $image != null ) {
 			$image = $itemTabletop->id.'.jpg';

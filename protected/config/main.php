@@ -30,10 +30,10 @@ return array(
                 'connectionID' => 'db',
             ),
         ),
-        
-        'Log' => array( 
+
+        'Log' => array(
             'class' => 'CLogRouter',
-             'routes' => array ( 
+             'routes' => array (
                 'class' => 'ext.phpconsole.PhpConsoleLogRoute',
                  /* Параметры по умолчанию:
                 'IsEnabled' => true,
@@ -54,22 +54,22 @@ return array(
                 'DumperDetectCallbacks' => true,
                 'DetectDumpTraceAndSource' => true,
                 'IsEvalEnabled' => false,
-                */ 
-            ) 
-        ), 
+                */
+            )
+        ),
         'db'         => array(
-        
+
             'connectionString' => 'mysql:host=localhost;dbname=a0009865_qpkuhni',
             'username'         => 'a0009865_a000986',
             'password'         => 'ihamwaimhi',
             'charset'          => 'utf8',
-         
-        /*    
+
+        /*
                 'connectionString' => 'mysql:host=localhost;dbname=a0009865_test',
                 'username'         => 'a0009865_test',
                 'password'         => 'test',
                 'charset'          => 'utf8',
-        */   
+        */
         ),
         'urlManager' => array(
             'urlFormat'      => 'path',
@@ -79,7 +79,7 @@ return array(
                 //new catalog
                 'catalog/'                             => 'catalog/index',
                 //'catalog/folder/<id>'                 => 'catalog/folder',
-                'catalog/stoleshnicy'               => 'catalog/folder/8',
+                'catalog/stoleshnicy'                 => 'catalog/folder/8',
                 'catalog/kuhonnye-aksessuary/<id>'    => 'catalog/kuhonnyeaksessuary',
                 'catalog/stenovye-paneli/<id>'        => 'catalog/stenovyepaneli',
                 'catalog/stoleshnicy/<id>'            => 'catalog/stoleshnicy',
@@ -102,14 +102,14 @@ return array(
                 'catalog/wall-panel/<id>'             => 'catalog/wallpanel',
                 'catalog/bars'                        => 'catalog/bars',
                 'catalog/bar/<id>'                    => 'catalog/barItem',
-				'catalog/shkafy'                     	=> 'catalog/404',
+				'catalog/shkafy'                      => 'catalog/404',
 				'catalog/shkafy/<id>'                 => 'catalog/shkafy',
                 'catalog/shkaf/<id>'                  => 'catalog/shkaf',
                 'catalog/fronts'                      => 'catalog/fronts',
+                'catalog/front/<id>'                  => 'catalog/front',
                 'catalog/kitchenmodules'              => 'catalog/kitchenmodules',
                 'catalog/setKitchenModuleColor'       => 'catalog/setKitchenModuleColor',
-                //'catalog/moduleItem/<id>'             => 'catalog/moduleItem',
-                //
+                'catalog/moduleItem/<id>'             => 'catalog/moduleItem',
                 'kitchen-module'                      => 'catalog/kitchenModule',
                 'kitchen-modules-color'               => 'catalog/kitchenModulesColor',
                 'fronts-color'                        => 'catalog/frontsColor',
