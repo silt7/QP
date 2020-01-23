@@ -237,9 +237,6 @@
     		</div>
     	</div>
     </div>
-	<div class="marquiz__container" style="margin-bottom:25px">
-	  <a class="marquiz__button marquiz__button_blicked" href="#popup:marquiz_5d7618f05253090044c54014" data-fixed-side="" data-alpha-color="rgba(255, 219, 0, 0.5)" data-color="#ffdb00" data-text-color="#000000">Узнать стоимость кухни</a>
-	</div>
     <div id="catalog">
     	<div class="container">		
     		<div class="row" style="margin: 50px 0 50px 0;">

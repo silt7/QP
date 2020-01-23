@@ -76,9 +76,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" /><!-- 3 KB -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script><!-- 16 KB -->
     <?endif;?>
-    <!-- Marquiz script start -->
-    <script defer src="//script.marquiz.ru/v1.js" type="application/javascript"></script>
-    <script defer> document.addEventListener("DOMContentLoaded", function () { Marquiz.init({ id: '5d7618f05253090044c54014', autoOpen: false, autoOpenFreq: 'once', openOnExit: true }); }); </script><!-- Marquiz script end -->
 </head>
 <body>
     <a href="#" id="successSend_a" data-toggle="modal" data-target="#successSend" style="display:none"></a>
